@@ -13,7 +13,7 @@ public class CustomerController : ControllerBase
     public CustomerController(ProductManagerContext productMngContext) => _productMngContext = productMngContext;
 
     [HttpGet]
-    [Route("get")]
+    [Route("")]
     public async Task<IActionResult> Get()
     {
         try
@@ -44,7 +44,7 @@ public class CustomerController : ControllerBase
     }
 
     [HttpGet]
-    [Route("get/{id:int}")]
+    [Route("{id:int}")]
     public async Task<IActionResult> Get(int id)
     {
         try

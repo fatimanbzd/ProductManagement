@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "esNrr2SuMNzi+3goX+do5azjqnpGgmHeJeaSzIINKOdkJnaqc8mtpetauBDyT6j2dHNAT49WJ9sj9eDPLZdb9w==",
+  "dgSpecHash": "8JqQt3uRaE0o980tV5fX+B9jQT709+69V5hVEweJQi2nzzQUCuCFkgbpd4+9XMgKNqn8CtIyEtZkMpfJYqQ1wQ==",
   "success": true,
   "projectFilePath": "D:\\product-manager\\ProductManagerAPI\\ProductManagerAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Fatima\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Fatima\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
+    "C:\\Users\\Fatima\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\7.0.9\\microsoft.aspnetcore.authentication.jwtbearer.7.0.9.nupkg.sha512",
     "C:\\Users\\Fatima\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.9\\microsoft.aspnetcore.openapi.7.0.9.nupkg.sha512",
     "C:\\Users\\Fatima\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\Fatima\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

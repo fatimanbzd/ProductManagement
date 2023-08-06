@@ -8,7 +8,7 @@ public class CustomerOrder
     public int Id { get; set; }
     public required string OrderNo { get; set; }
     public required decimal Price { get; set; }
-    public required DateTime SUbmitDate { get; set; }
+    public required DateTime SubmitDate { get; set; }
 
     public required virtual ICollection<CustomerOrderDetail> CustomerOrderDetails { get; set; }
 

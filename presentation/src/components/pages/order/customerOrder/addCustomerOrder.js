@@ -1,99 +1,185 @@
-import { useState,useEffect} from 'react';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
+import { useState, useEffect, useContext } from "react";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
 import axios from "axios";
-import SearchBar from '../../../shared/searchBar';
+import { Col, FloatingLabel, Row, Table } from "react-bootstrap";
+import ProductSearchBar from "../../../shared/ProductSearchBar";
+import CustomerSearchBar from "../../../shared/customerSearchBar";
+import { UrlContext } from "../../../../context/urlContext";
 
 function AddCustomerOrder() {
-  //const [selectedDate, handleDateChange] = useState(new Date());
+  const { Url } = useContext(UrlContext);
+
   const [products, setProducts] = useState([]);
-  
-    useEffect(()=>{
-        axios.get("http://localhost:5172/product/get")
-        .then((response)=> {
-          setProducts((existingData) => {
-            return response.data;
-          });
-          console.log(products)
-   })
-    },[products]);
-  
-  const [productDetails, setProductDetails] = useState([])
+  const [totalPrice, setTotalPrice] = useState(0);
+  const [customers, setCustomers] = useState([]);
+  const [customer, setCustomer] = useState({});
+
+  useEffect(() => {
+    axios.get(`${Url}/product/get`).then((response) => {
+      setProducts((existingData) => {
+        return response.data;
+      });
+    });
+    axios.get(`${Url}/Customer/get`).then((response) => {
+      setCustomers((existingData) => {
+        return response.data;
+      });
+    });
+  }, []);
+
+  const [productDetails, setProductDetails] = useState([]);
 
   let arrayproduct = {};
   function addProduct() {
- 
-    if (Object.keys(arrayproduct).length !== 0 && !productDetails.some(el => el.id=== arrayproduct.id))
-      setProductDetails([...productDetails, arrayproduct])
+    if (
+      Object.keys(arrayproduct).length !== 0 &&
+      !productDetails.some((el) => el.id === arrayproduct.id)
+    )
+      setProductDetails([...productDetails, arrayproduct]);
   }
-  
+
   function onSelectedProduct(product) {
+    if (product === null) {
+      return;
+    }
     arrayproduct = {
-      id:product.id,
-      code: product.code,
-      name: product.label,
-      count: 1
-  };
-  
+      id: product.id,
+      name: product.name,
+      code: product.label,
+      count: 1,
+      price: 0,
+      totalPrice: 0,
+    };
+  }
+
+  function onSelectedCustomer(customer) {
+    if (customer === null) {
+      return;
+    }
+    setCustomer(customer);
   }
 
   function handleChange(index, event) {
-     const { name,value } = event.target;
+    const { name, value } = event.target;
     const list = [...productDetails];
     list[index][name] = value;
     setProductDetails(list);
   }
 
+  function getotalPrice() {
+    setTotalPrice(
+      productDetails.map((m) => m.totalPrice).reduce((p, c) => p + c)
+    );
+  }
+
+  function onsubmit() {
+    let model = {
+      customerId: customer.id,
+      productDetails: productDetails.map((m) => {
+        return {
+          id: m.id,
+          count: m.count,
+          price: m.price,
+          totalPrice: m.totalPrice,
+        };
+      }),
+    };
+
+    console.log(model);
+
+    // axios
+    //   .post("http://localhost:5172/customerOrder/add", model)
+    //   .then((response) => {});
+  }
+
   return (
     <>
-      <Form>
-    
-        <Form.Group className="mb-3">
-          <Form.Label htmlFor="">Disabled input</Form.Label>
-          <Form.Control id="disabledTextInput" placeholder="Disabled input" />
-        </Form.Group>
+      <Row className="g-1">
+        <Col md>
+          <FloatingLabel controlId="floatingInputGrid">
+            {customers.length > 0 && (
+              <CustomerSearchBar
+                customers={customers}
+                onSelectedCustomer={onSelectedCustomer}
+              ></CustomerSearchBar>
+            )}
+          </FloatingLabel>
+        </Col>
+      </Row>
+      <Row className="g-2">
+        <Col md>
+          <FloatingLabel controlId="floatingInputGrid">
+            {products.length > 0 && (
+              <ProductSearchBar
+                products={products}
+                onSelectedProduct={onSelectedProduct}
+              ></ProductSearchBar>
+            )}
+          </FloatingLabel>
+        </Col>
+        <Col md>
+          <FloatingLabel controlId="floatingSelectGrid">
+            <Button onClick={addProduct} disabled="">
+              +
+            </Button>
+          </FloatingLabel>
+        </Col>
+      </Row>
 
-        <br />
-        <SearchBar
-          products={products}
-          onSelectedProduct={onSelectedProduct}
-        ></SearchBar>
-        <br />
-      
-        {productDetails.length > 0 &&
-          <table>
-            <thead><tr>
+      <br />
+
+      {productDetails.length > 0 && (
+        <Table striped bordered hover>
+          <thead>
+            <tr>
               <th>Name</th>
               <th>Count</th>
+              <th>price</th>
+              <th>Total Price</th>
             </tr>
-            </thead>
-        
-            <tbody>
-              {productDetails.map((pro, index) => (
+          </thead>
 
-                <tr key={index}>
-                  <td>{pro.name} - {pro.code}</td>
-                  <td>
-                    <input type='number'name='count' value={pro.count} onChange={(event) => handleChange(index, event)} min="1"/>
-                  </td>
-                </tr>
-        
-   
+          <tbody>
+            {productDetails.map((pro, index) => (
+              <tr key={index}>
+                <td>
+                  {pro.name} - {pro.code}
+                </td>
+                <td>
+                  <Form.Control
+                    type="number"
+                    id="count"
+                    min="1"
+                    onChange={(event) => handleChange(index, event)}
+                    value={pro.count}
+                    name="count"
+                  />
+                </td>
+                <td>
+                  <Form.Control
+                    type="text"
+                    id="price"
+                    onChange={(event) => handleChange(index, event)}
+                    value={pro.price}
+                    name="price"
+                  />
+                </td>
+                <td>{(pro.totalPrice = pro.price * pro.count)}</td>
+              </tr>
             ))}
-            </tbody>
-          </table>
-        }
-   
-        <br />
-        <Button onClick={addProduct} disabled="">+</Button>
-        <br />
-        <Button type="submit">Submit</Button>
- 
-      </Form>
-
+          </tbody>
+        </Table>
+      )}
+      <br />
+      <button onClick={getotalPrice}>calculate</button>
+      <label>{totalPrice}</label>
+      <br />
+      <Button type="submit" onClick={onsubmit}>
+        Submit
+      </Button>
     </>
-    )
-
+  );
 }
 
 export default AddCustomerOrder;
