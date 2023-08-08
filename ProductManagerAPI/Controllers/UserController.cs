@@ -15,7 +15,7 @@ public class UserController : ControllerBase
     {
         try
         {
-            _productMngContext.Users.Add(model);
+            _productMngContext.User.Add(model);
             await _productMngContext.SaveChangesAsync();
             return Ok(model);
         }
