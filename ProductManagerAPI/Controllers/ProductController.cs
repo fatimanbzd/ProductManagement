@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProductManagerAPI.Data;
 using ProductManagerAPI.Data.Entities;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ProductManagerAPI.Controllers;
 
@@ -13,7 +14,7 @@ public class ProductController : ControllerBase
     public ProductController(ProductManagerContext productMngContext) => _productMngContext = productMngContext;
 
     [HttpGet]
-    [Route("")]
+    [Authorize]
     public async Task<IActionResult> Get()
     {
         try
@@ -28,7 +29,7 @@ public class ProductController : ControllerBase
     }
 
     [HttpPost]
-    [Route("add")]
+    [Route("")]
     public async Task<IActionResult> Add(Product model)
     {
         try
@@ -59,7 +60,7 @@ public class ProductController : ControllerBase
     }
 
     [HttpPut]
-    [Route("update")]
+    [Route("")]
     public async Task<IActionResult> Edit(Product model)
     {
         try
@@ -75,7 +76,7 @@ public class ProductController : ControllerBase
     }
 
     [HttpDelete]
-    [Route("remove/{id}")]
+    [Route("{id}")]
     public async Task<IActionResult> Remove(int id)
     {
         try

@@ -25,7 +25,7 @@ function AddProduct() {
       imageUrl: imageUrl.current.value,
     };
 
-    axios.post(`${Url}/product/add`, model).then((response) => {
+    axios.post(`${Url}/product`, model).then((response) => {
       navigate("/");
     });
   }

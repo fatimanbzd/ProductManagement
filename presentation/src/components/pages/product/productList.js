@@ -34,15 +34,13 @@ function AllProduct() {
   }
 
   function deleteConfirmationPopUpHandler() {
-    axios
-      .delete(`${Url}/product/remove/${productToDelete}`)
-      .then((response) => {
-        setShowModal(false);
-        setProducts((existingData) => {
-          return existingData.filter((_) => _.id !== productToDelete);
-        });
-        setProductToDelete(0);
+    axios.delete(`${Url}/product/${productToDelete}`).then((response) => {
+      setShowModal(false);
+      setProducts((existingData) => {
+        return existingData.filter((_) => _.id !== productToDelete);
       });
+      setProductToDelete(0);
+    });
   }
 
   return (

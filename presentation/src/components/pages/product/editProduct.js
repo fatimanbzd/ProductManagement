@@ -37,7 +37,7 @@ function UpdateProduct() {
       imageUrl: imageUrl.current.value,
     };
 
-    axios.put(`${Url}/product/update`, model).then((response) => {
+    axios.put(`${Url}/product`, model).then((response) => {
       navigate("/");
     });
   }
