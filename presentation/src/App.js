@@ -9,11 +9,20 @@ import AllCustomer from "./components/pages/customer/customerList";
 import AddCustomer from "./components/pages/customer/addCustomer";
 import UpdateCustomer from "./components/pages/customer/editCustomer";
 import AddCustomerOrder from "./components/pages/order/customerOrder/addCustomerOrder";
-import UrlContextProvider, { UrlContext } from "./context/urlContext";
+import UrlContextProvider, { } from "./context/urlContext";
+import Login from "./components/pages/user/login";
+import useToken from './components/useToken';
+
 
 function App() {
+
+  //const { token, setToken } = useToken();
+
+ // if(!token) {
+  //  return <Login />
+  //}
   return (
-    <UrlContextProvider>
+
       <Layout>
         <Routes>
           <Route path="/" element={<Home></Home>}></Route>
@@ -42,9 +51,12 @@ function App() {
             path="/add-customerOrder"
             element={<AddCustomerOrder></AddCustomerOrder>}
           ></Route>
+          <Route
+          path="/login"
+          element={<Login></Login>}>
+          </Route>
         </Routes>
       </Layout>
-    </UrlContextProvider>
   );
 }
 

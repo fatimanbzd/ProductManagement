@@ -7,6 +7,8 @@ import Button from "react-bootstrap/Button";
 import { useNavigate } from "react-router-dom";
 import DeleteConfirmationModal from "../../shared/delete";
 import { UrlContext } from "../../../context/urlContext";
+import axiosInstance from "../../AxiosInstance";
+
 
 function AllProduct() {
   const [products, setProducts] = useState([]);
@@ -16,7 +18,7 @@ function AllProduct() {
 
   const { Url } = useContext(UrlContext);
   useEffect(() => {
-    axios.get(`${Url}/product`).then((response) => {
+    axiosInstance.get(`${Url}/product`).then((response) => {
       setProducts((existingData) => {
         return response.data;
       });

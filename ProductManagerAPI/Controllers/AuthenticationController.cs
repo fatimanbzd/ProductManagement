@@ -8,6 +8,7 @@ using System.Security.Claims;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Text;
+using ProductManagerAPI.Model;
 
 namespace ProductManagerAPI.Controllers;
 
@@ -23,13 +24,13 @@ public class AuthenticationController : ControllerBase
         _productMngContext = productMngContext;
     }
 
-    [HttpGet]
-    [Route("Login")]
-    public async Task<IActionResult> Login([FromQuery] User user)
+    [HttpPost]
+    [Route("login")]
+    public async Task<IActionResult> Login(LoginModel login)
     {
-        if (user != null && user.Email != null && user.Password != null)
+        if (login != null && login.Email != null && login.Password != null)
         {
-            var _user = await GetUser(user.Email, user.Password);
+            var _user = await GetUser(login.Email, login.Password);
 
             if (_user != null)
             {
@@ -37,11 +38,8 @@ public class AuthenticationController : ControllerBase
                         new Claim(JwtRegisteredClaimNames.Sub, _configuration["Jwt:Subject"]),
                         new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                         new Claim(JwtRegisteredClaimNames.Iat, DateTime.UtcNow.ToString()),
-                        new Claim("Id", user.Id.ToString()),
-                        new Claim("FirstName", user.FirstName),
-                        new Claim("LastName", user.FirstName),
-                        new Claim("UserName", user.UserName),
-                        new Claim("Email", user.Email)
+                        new Claim("Password", login.Password),
+                        new Claim("Email", login.Email)
                     };
 
                 var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));

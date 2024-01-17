@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace ProductManagerAPI.Controllers;
 
+[Authorize]
 [ApiController]
 [Route("product")]
 public class ProductController : ControllerBase
@@ -14,7 +15,6 @@ public class ProductController : ControllerBase
     public ProductController(ProductManagerContext productMngContext) => _productMngContext = productMngContext;
 
     [HttpGet]
-    [Authorize]
     public async Task<IActionResult> Get()
     {
         try
