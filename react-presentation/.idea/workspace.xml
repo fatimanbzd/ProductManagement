@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ccea4b20-38f7-4544-b7a9-0a8684e8ff97" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../presentation/src/asset/Counter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../presentation/src/redux/actions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../presentation/src/redux/counterReducer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../presentation/src/redux/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../presentation/src/redux/store.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/react-presentation.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProductManagerAPI/.vs/ProductManagerAPI/DesignTimeBuild/.dtbcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/../ProductManagerAPI/.vs/ProductManagerAPI/DesignTimeBuild/.dtbcache.v2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProductManagerAPI/.vs/ProductManagerAPI/FileContentIndex/48e6853c-6dd5-4003-9fdb-5276b7b27a3b.vsidx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProductManagerAPI/.vs/ProductManagerAPI/FileContentIndex/d5408829-e01d-4532-83d2-788d7594e47f.vsidx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProductManagerAPI/.vs/ProductManagerAPI/FileContentIndex/read.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProductManagerAPI/.vs/ProductManagerAPI/v17/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/../ProductManagerAPI/.vs/ProductManagerAPI/v17/.suo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProductManagerAPI/bin/Debug/net7.0/ProductManagerAPI.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../ProductManagerAPI/bin/Debug/net7.0/ProductManagerAPI.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProductManagerAPI/bin/Debug/net7.0/ProductManagerAPI.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../ProductManagerAPI/bin/Debug/net7.0/ProductManagerAPI.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProductManagerAPI/bin/Debug/net7.0/ProductManagerAPI.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../ProductManagerAPI/bin/Debug/net7.0/ProductManagerAPI.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProductManagerAPI/obj/Debug/net7.0/ProductManagerAPI.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../ProductManagerAPI/obj/Debug/net7.0/ProductManagerAPI.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProductManagerAPI/obj/Debug/net7.0/ProductManagerAPI.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/../ProductManagerAPI/obj/Debug/net7.0/ProductManagerAPI.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProductManagerAPI/obj/Debug/net7.0/ProductManagerAPI.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../ProductManagerAPI/obj/Debug/net7.0/ProductManagerAPI.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProductManagerAPI/obj/Debug/net7.0/ProductManagerAPI.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../ProductManagerAPI/obj/Debug/net7.0/ProductManagerAPI.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProductManagerAPI/obj/Debug/net7.0/ProductManagerAPI.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../ProductManagerAPI/obj/Debug/net7.0/ProductManagerAPI.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProductManagerAPI/obj/Debug/net7.0/ProductManagerAPI.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../ProductManagerAPI/obj/Debug/net7.0/ProductManagerAPI.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProductManagerAPI/obj/Debug/net7.0/ProductManagerAPI.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../ProductManagerAPI/obj/Debug/net7.0/ProductManagerAPI.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProductManagerAPI/obj/Debug/net7.0/ProductManagerAPI.genruntimeconfig.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../ProductManagerAPI/obj/Debug/net7.0/ProductManagerAPI.genruntimeconfig.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProductManagerAPI/obj/Debug/net7.0/ProductManagerAPI.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../ProductManagerAPI/obj/Debug/net7.0/ProductManagerAPI.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProductManagerAPI/obj/Debug/net7.0/apphost.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../ProductManagerAPI/obj/Debug/net7.0/apphost.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProductManagerAPI/obj/Debug/net7.0/ref/ProductManagerAPI.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../ProductManagerAPI/obj/Debug/net7.0/ref/ProductManagerAPI.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProductManagerAPI/obj/Debug/net7.0/refint/ProductManagerAPI.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../ProductManagerAPI/obj/Debug/net7.0/refint/ProductManagerAPI.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProductManagerAPI/obj/ProductManagerAPI.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/../ProductManagerAPI/obj/ProductManagerAPI.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProductManagerAPI/obj/ProductManagerAPI.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/../ProductManagerAPI/obj/ProductManagerAPI.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProductManagerAPI/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/../ProductManagerAPI/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProductManagerAPI/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../ProductManagerAPI/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angular-presentation/.vscode/launch.json" beforeDir="false" afterPath="$PROJECT_DIR$/../angular-presentation/.vscode/launch.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angular-presentation/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../angular-presentation/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angular-presentation/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/../angular-presentation/angular.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angular-presentation/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../angular-presentation/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angular-presentation/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../angular-presentation/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angular-presentation/src/app/app-routing.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angular-presentation/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../angular-presentation/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angular-presentation/src/app/app.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../angular-presentation/src/app/app.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angular-presentation/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../angular-presentation/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angular-presentation/src/app/app.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angular-presentation/src/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/../angular-presentation/src/favicon.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angular-presentation/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../angular-presentation/src/main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../angular-presentation/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/../angular-presentation/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../presentation/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../presentation/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../presentation/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../presentation/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../presentation/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../presentation/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../presentation/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../presentation/src/index.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2bDM9oMPdyU7DCgXT4pfHFLwCo9" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ccea4b20-38f7-4544-b7a9-0a8684e8ff97" name="Changes" comment="" />
+      <created>1705745046856</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1705745046856</updated>
+      <workItem from="1705745048337" duration="578000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

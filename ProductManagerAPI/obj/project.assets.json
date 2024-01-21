@@ -3467,19 +3467,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Fatima\\.nuget\\packages\\": {}
+    "C:\\Users\\f.nabizadeh\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\product-manager\\ProductManagerAPI\\ProductManagerAPI.csproj",
+      "projectUniqueName": "D:\\MyWorkSpace\\ProductManagement\\ProductManagerAPI\\ProductManagerAPI.csproj",
       "projectName": "ProductManagerAPI",
-      "projectPath": "D:\\product-manager\\ProductManagerAPI\\ProductManagerAPI.csproj",
-      "packagesPath": "C:\\Users\\Fatima\\.nuget\\packages\\",
-      "outputPath": "D:\\product-manager\\ProductManagerAPI\\obj\\",
+      "projectPath": "D:\\MyWorkSpace\\ProductManagement\\ProductManagerAPI\\ProductManagerAPI.csproj",
+      "packagesPath": "C:\\Users\\f.nabizadeh\\.nuget\\packages\\",
+      "outputPath": "D:\\MyWorkSpace\\ProductManagement\\ProductManagerAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Fatima\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\f.nabizadeh\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3487,7 +3487,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\sdk\\7.0.311\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -3550,7 +3549,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.311\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

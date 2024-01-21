@@ -11,11 +11,11 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-devkit/build-angular:application",
           "options": {
             "outputPath": "dist/angular-presentation",
             "index": "src/index.html",
-            "main": "src/main.ts",
+            "browser": "src/main.ts",
             "polyfills": [
               "zone.js"
             ],
@@ -25,8 +25,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
-            ],
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css"            ],
             "scripts": []
           },
           "configurations": {
@@ -46,12 +45,9 @@
               "outputHashing": "all"
             },
             "development": {
-              "buildOptimizer": false,
               "optimization": false,
-              "vendorChunk": true,
               "extractLicenses": false,
-              "sourceMap": true,
-              "namedChunks": true
+              "sourceMap": true
             }
           },
           "defaultConfiguration": "production"
@@ -60,10 +56,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "angular-presentation:build:production"
+              "buildTarget": "angular-presentation:build:production"
             },
             "development": {
-              "browserTarget": "angular-presentation:build:development"
+              "buildTarget": "angular-presentation:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -71,7 +67,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-presentation:build"
+            "buildTarget": "angular-presentation:build"
           }
         },
         "test": {
@@ -96,6 +92,6 @@
     }
   },
   "cli": {
-    "analytics": "378ab198-4e93-46c7-8f48-86fbf72ba769"
+    "analytics": "fc5964a6-816c-4f95-ab25-59d1e483fa20"
   }
 }
