@@ -6,6 +6,6 @@ import {IUserModel} from "../interfaces/user-model";
 })
 export class AuthService {
 
-  currentUserSig = signal<IUserModel | undefined | null>(undefined);
+  currentUserSig = signal<IUserModel | undefined | null>(null);
 
 }

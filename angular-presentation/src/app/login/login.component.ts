@@ -4,7 +4,7 @@ import {HttpClient} from "@angular/common/http";
 import {AuthService} from "../services/auth.service";
 import {IUserModel} from "../interfaces/user-model";
 import {Router} from "@angular/router";
-import {routes} from "../app.routes";
+import {CurrentUserService} from "../services/current-user.service";
 
 @Component({
   selector: 'app-login',
@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit {
   constructor(private fb: FormBuilder,
               private http: HttpClient,
               private authService: AuthService,
+              private currentUserService: CurrentUserService,
               private router: Router) {
   }
 
@@ -37,11 +38,13 @@ export class LoginComponent implements OnInit {
   }
 
   submit() {
+    console.log(this.form.getRawValue())
     this.http.post<{user: IUserModel}>('https://api.realworld.io/api/users/login', {user: this.form.getRawValue()})
       .subscribe({
         next:(res: any)=>{
           localStorage.setItem('token',res.user.token);
-          this.authService.currentUserSig.set(res.user);
+          this.currentUserService.setCurrentUser();
+          this.authService.currentUserSig.set(res.user)
           this.router.navigateByUrl('/dashboard');
         }
       })

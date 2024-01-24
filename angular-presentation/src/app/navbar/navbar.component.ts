@@ -16,7 +16,8 @@ import {NgIf} from "@angular/common";
 export class NavbarComponent {
 
   authService= inject(AuthService);
-  constructor() {}
+  constructor() {
+  }
   logout(){
 
     localStorage.removeItem('token')
