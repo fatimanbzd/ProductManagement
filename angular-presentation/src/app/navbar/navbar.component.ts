@@ -1,25 +1,37 @@
-import {Component, inject} from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import {RouterLink} from "@angular/router";
 import {AuthService} from "../services/auth.service";
-import {NgIf} from "@angular/common";
+import {AsyncPipe, NgIf} from "@angular/common";
+import {IUserResponseModel} from "../interfaces/user-model";
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
   imports: [
     RouterLink,
-    NgIf
+    NgIf,
+    AsyncPipe
   ],
+  providers: [AuthService],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit {
 
-  authService= inject(AuthService);
-  constructor() {}
-  logout(){
+  user!: IUserResponseModel;
+  authService = inject(AuthService);
 
-    localStorage.removeItem('token')
-    this.authService.currentUserSig.set(null);
+  constructor() {
+  }
+
+  ngOnInit() {
+    this.authService.getCurrentAuthUser()
+      .subscribe(user =>
+        this.user = user
+  )
+  }
+
+  logout() {
+    this.authService.logout();
   }
 }

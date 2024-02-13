@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {log} from "@angular-devkit/build-angular/src/builders/ssr-dev-server";
+import {AuthService} from "../services/auth.service";
 
 @Component({
   selector: 'app-dashboard',
@@ -11,12 +10,14 @@ import {log} from "@angular-devkit/build-angular/src/builders/ssr-dev-server";
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private http: HttpClient) {
+  constructor(private authService: AuthService) {
   }
 
 
   ngOnInit() {
-    this.http.get('http://localhost:3000')
-      .subscribe(res => console.log(res))
+    // this.authService.getCurrentAuthUser().subscribe(
+    //   res=> {
+    //   }
+    //)
   }
 }

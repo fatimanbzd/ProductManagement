@@ -1,4 +1,4 @@
-export interface IUserModel {
+export interface IUserResponseModel {
   username: string;
   token: string;
   email: string;
