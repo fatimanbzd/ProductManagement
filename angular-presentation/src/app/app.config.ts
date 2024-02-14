@@ -4,8 +4,9 @@ import {provideRouter} from '@angular/router';
 import {routes} from './app.routes';
 import {provideAnimations} from "@angular/platform-browser/animations";
 import {provideHttpClient, withInterceptors} from "@angular/common/http";
-import {authInterceptor} from "./auth.interceptor";
+import {authInterceptor} from "./interceptors/auth.interceptor";
+import {httpsRequestInterceptor} from "./interceptors/https-request.interceptor";
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes),provideAnimations(), provideHttpClient(withInterceptors([authInterceptor]))]
+  providers: [provideRouter(routes),provideAnimations(), provideHttpClient(withInterceptors([authInterceptor, httpsRequestInterceptor]))]
 };

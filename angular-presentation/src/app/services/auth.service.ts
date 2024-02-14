@@ -20,9 +20,9 @@ export class AuthService {
   }
 
   logIn(form: any) {
-    return this.http.post<IUserResponseModel>('https://dummyjson.com/auth/login', {
-      username: 'kminchelle',
-      password: '0lelplR'
+    return this.http.post<IUserResponseModel>('/login', {
+      email: 'fatemenabizade@hotmail.com',
+      password: '123456'
     })
       .pipe(tap((response) => this.doLoginUser(response, response.token)))
   }
