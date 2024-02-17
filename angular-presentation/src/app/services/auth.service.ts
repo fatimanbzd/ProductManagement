@@ -12,7 +12,7 @@ export class AuthService {
 
   private readonly JWT_TOKEN = Config.JWT_TOKEN;
   loggedUser?: string;
-  private isAuthenticatedSubject = new BehaviorSubject<IUserResponseModel | undefined | null>(undefined);
+  private isAuthenticatedSubject = new BehaviorSubject<IUserResponseModel | undefined>(undefined);
   isAuthenticated$ = this.isAuthenticatedSubject.asObservable();
 
   constructor(private http: HttpClient,
@@ -20,7 +20,7 @@ export class AuthService {
   }
 
   logIn(form: any) {
-    return this.http.post<IUserResponseModel>('/login', {
+    return this.http.post<IUserResponseModel>('/token/login', {
       email: 'fatemenabizade@hotmail.com',
       password: '123456'
     })
@@ -28,7 +28,7 @@ export class AuthService {
   }
 
   private doLoginUser(user: IUserResponseModel, token: string) {
-    this.loggedUser = user.username;
+    this.loggedUser = user.userName;
     this.storeJWTToken(token)
     this.setAuthenticate(user);
   }
@@ -40,11 +40,11 @@ export class AuthService {
   logout() {
     localStorage.removeItem(this.JWT_TOKEN);
     this.setAuthenticate(undefined);
-    this.router.navigate(['/login']);
+    this.router.navigate(['/token/logout']);
   }
 
   getCurrentAuthUser():Observable<IUserResponseModel> {
-    return this.http.get<IUserResponseModel>('https://dummyjson.com/auth/me');
+    return this.http.get<IUserResponseModel>('/token/currentUser');
   }
 
   setAuthenticate(user: IUserResponseModel | undefined) {

@@ -1,21 +1,52 @@
-<form>
+<form [formGroup]="form">
   <div class="row mb-3">
     <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
     <div class="col-sm-10">
-      <input type="email" class="form-control" id="inputEmail3">
+      <input type="email"
+             class="form-control"
+             id="inputEmail3"
+             formControlName="email"
+      >
+    </div>
+  </div>
+  <div class="row mb-3">
+    <label class="col-sm-2 col-form-label">First Name</label>
+    <div class="col-sm-10">
+      <input type="email"
+             class="form-control"
+             formControlName="firstName"
+      >
+    </div>
+  </div>
+  <div class="row mb-3">
+    <label class="col-sm-2 col-form-label">Last Name</label>
+    <div class="col-sm-10">
+      <input type="email"
+             class="form-control"
+             formControlName="lastName"
+      >
     </div>
   </div>
   <div class="row mb-3">
     <label for="password" class="col-sm-2 col-form-label">Password</label>
     <div class="col-sm-10">
-      <input type="password" class="form-control" id="password">
+      <input type="password" class="form-control"
+             id="password"
+             formControlName="password"
+      >
     </div>
   </div>
   <div class="row mb-3">
     <label for="confirmPassword" class="col-sm-2 col-form-label">Confirm Password</label>
     <div class="col-sm-10">
-      <input type="password" class="form-control" id="confirmPassword">
+      <input type="password" class="form-control"
+             id="confirmPassword"
+             formControlName="confirmPassword"
+      >
+    </div>
+    <div class="error-message" *ngIf="form.errors?.['PasswordNoMatch']">
+      Password does'nt match.
     </div>
   </div>
-  <button type="submit" class="btn btn-primary">Sign in</button>
+  <button type="submit" class="btn btn-primary" (click)="submit(form)">Sign in</button>
 </form>

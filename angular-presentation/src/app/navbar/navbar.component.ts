@@ -18,17 +18,16 @@ import {IUserResponseModel} from "../interfaces/user-model";
 })
 export class NavbarComponent implements OnInit {
 
-  user!: IUserResponseModel;
+  user!: IUserResponseModel | undefined;
   authService = inject(AuthService);
 
   constructor() {
   }
 
   ngOnInit() {
-    this.authService.getCurrentAuthUser()
-      .subscribe(user =>
-        this.user = user
-  )
+    this.authService.isAuthenticated$.subscribe(user => {
+      this.user = user;
+    });
   }
 
   logout() {

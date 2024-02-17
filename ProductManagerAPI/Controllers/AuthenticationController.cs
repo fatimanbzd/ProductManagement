@@ -51,7 +51,14 @@ public class AuthenticationController : ControllerBase
                     expires: DateTime.UtcNow.AddMinutes(10),
                     signingCredentials: signIn);
 
-                return Ok(new JwtSecurityTokenHandler().WriteToken(token));
+                var tokenString = new JwtSecurityTokenHandler().WriteToken(token);
+                return Ok(new UserModel
+                {
+                    Token = tokenString,
+                    UserName = _user.UserName,
+                    FullName = _user.FirstName + " " + _user.LastName,
+                    Email = _user.Email,
+                });
             }
             else
             {
@@ -65,11 +72,21 @@ public class AuthenticationController : ControllerBase
     }
 
     [HttpGet]
+    [Route("currentUser")]
     public async Task<User> GetUser(string email, string password)
     {
         var result = await _productMngContext.User.FirstOrDefaultAsync(u => u.Email == email && u.Password == password);
         if (result is null)
             throw new ArgumentException(nameof(email));
         return result;
+
     }
+
+    [HttpGet]
+    [Route("logout")]
+    public async Task<string> GetUser(int id)
+    {
+        return "";
+    }
+
 }

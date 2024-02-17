@@ -1,6 +1,16 @@
 export interface IUserResponseModel {
-  username: string;
+  userName: string;
   token: string;
   email: string;
-  image: string;
+  fullName: string;
+}
+
+
+export interface IRegisterModel {
+  userName: string;
+  Password: string;
+  CreateDate?: string;
+  firstName: string;
+  lastName: string;
+  email: string;
 }
