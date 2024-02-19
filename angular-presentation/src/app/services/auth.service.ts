@@ -40,7 +40,7 @@ export class AuthService {
   logout() {
     localStorage.removeItem(this.JWT_TOKEN);
     this.setAuthenticate(undefined);
-    this.router.navigate(['/token/logout']);
+    this.router.navigate(['/login']);
   }
 
   getCurrentAuthUser():Observable<IUserResponseModel> {
