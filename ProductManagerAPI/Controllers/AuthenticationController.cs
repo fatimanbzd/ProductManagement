@@ -82,11 +82,4 @@ public class AuthenticationController : ControllerBase
 
     }
 
-    [HttpGet]
-    [Route("logout")]
-    public async Task<string> GetUser(int id)
-    {
-        return "";
-    }
-
 }
