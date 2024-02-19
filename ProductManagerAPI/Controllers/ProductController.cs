@@ -37,7 +37,11 @@ public class ProductController : ControllerBase
         {
             _productMngContext.Product.Add(model);
             await _productMngContext.SaveChangesAsync();
-            return Ok(model);
+            return Ok(new ApiResponse<int>()
+            {
+                Result=model.Id,
+                IsSuccess = true,
+            });
         }
         catch (Exception e)
         {
@@ -46,7 +50,7 @@ public class ProductController : ControllerBase
     }
 
     [HttpGet]
-    [Route("{id:int}")]
+    [Route("{id}")]
     public async Task<IActionResult> Get(int id)
     {
         try
@@ -62,7 +66,7 @@ public class ProductController : ControllerBase
 
     [HttpPut]
     [Route("")]
-    public async Task<IActionResult> Edit(Product model)
+    public async Task<IActionResult> Uodate(Product model)
     {
         try
         {

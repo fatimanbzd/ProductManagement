@@ -5,12 +5,15 @@ import {HomeComponent} from "./home/home.component";
 import {RegisterComponent} from "./register/register.component";
 import {AuthGuard} from "./guards/auth-guard";
 import {ProductListComponent} from "./product/product-list/product-list.component";
+import {ProductAddComponent} from "./product/product-add/product-add.component";
 
 export const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'product-list', component: ProductListComponent, canActivate: [AuthGuard]},
+  {path: 'product-add', component: ProductAddComponent, canActivate: [AuthGuard]},
+
   {
     path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard],
   },

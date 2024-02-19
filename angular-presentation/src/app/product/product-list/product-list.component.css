@@ -1,4 +1,6 @@
 .content{
   margin-top: 50px;
   height: 150px;
+  justify-items: center;
+  align-items: center;
 }

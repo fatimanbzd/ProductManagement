@@ -1,9 +1,10 @@
-import {Component, OnDestroy, ViewChild} from '@angular/core';
-import {AgGridAngular, AgGridModule} from "ag-grid-angular";
-import {ColDef, GridApi, GridReadyEvent} from "ag-grid-community";
+import {Component, OnDestroy} from '@angular/core';
+import {AgGridModule} from "ag-grid-angular";
+import {ColDef, GridReadyEvent} from "ag-grid-community";
 import {ProductService} from "../product.service";
 import {Subject, takeUntil} from "rxjs";
 import {IProductResponse} from "../interfaces/product.model";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-product-list',
@@ -14,7 +15,8 @@ import {IProductResponse} from "../interfaces/product.model";
 })
 export class ProductListComponent implements OnDestroy {
 
-  constructor(private productService: ProductService) {
+  constructor(private productService: ProductService,
+              private router: Router) {
   }
 
   themeClass =
@@ -22,20 +24,16 @@ export class ProductListComponent implements OnDestroy {
   rowData!: IProductResponse[];
   colDefs: ColDef[] = [
     {
-      field: 'code',
-      width: 150,
+      field: 'code'
     },
     {
-      field: 'name',
-      width: 150,
+      field: 'name'
     },
     {
-      field: 'weight',
-      width: 150,
+      field: 'weight'
     },
     {
-      field: 'description',
-      width: 150,
+      field: 'description'
     },
   ];
 
@@ -47,6 +45,9 @@ export class ProductListComponent implements OnDestroy {
       .subscribe(product => (this.rowData = product));
   }
 
+  addProduct(){
+    this.router.navigateByUrl('/product-add')
+  }
 
   ngOnDestroy() {
     this._destroy.next();
