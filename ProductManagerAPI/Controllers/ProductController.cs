@@ -15,6 +15,7 @@ public class ProductController : ControllerBase
     public ProductController(ProductManagerContext productMngContext) => _productMngContext = productMngContext;
 
     [HttpGet]
+    [Route("")]
     public async Task<IActionResult> Get()
     {
         try
