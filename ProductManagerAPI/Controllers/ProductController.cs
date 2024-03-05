@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using ProductManagerAPI.Data;
 using ProductManagerAPI.Data.Entities;
 using Microsoft.AspNetCore.Authorization;
+using ProductManagerAPI.Repositories.IServices;
 
 namespace ProductManagerAPI.Controllers;
 
@@ -12,7 +13,13 @@ namespace ProductManagerAPI.Controllers;
 public class ProductController : ControllerBase
 {
     private readonly ProductManagerContext _productMngContext;
-    public ProductController(ProductManagerContext productMngContext) => _productMngContext = productMngContext;
+    private readonly IProductService _productService;
+
+    public ProductController(ProductManagerContext productMngContext, IProductService productService)
+    {
+        _productMngContext = productMngContext;
+        _productService = productService;
+    }
 
     [HttpGet]
     [Route("")]
@@ -20,7 +27,7 @@ public class ProductController : ControllerBase
     {
         try
         {
-            var products = await _productMngContext.Product.ToListAsync();
+            var products = await _productService.GetAllProducts();
             return Ok(products);
         }
         catch (Exception e)
@@ -33,20 +40,17 @@ public class ProductController : ControllerBase
     [Route("")]
     public async Task<IActionResult> Add(Product model)
     {
-        try
+        if (model == null)
         {
-            _productMngContext.Product.Add(model);
-            await _productMngContext.SaveChangesAsync();
-            return Ok(new ApiResponse<int>()
-            {
-                Result=model.Id,
-                IsSuccess = true,
-            });
+            return BadRequest();
         }
-        catch (Exception e)
+        await _productService.AddProduct(model);
+
+        return Ok(new ApiResponse<int>()
         {
-            throw;
-        }
+            Result = model.Id,
+            IsSuccess = true,
+        });
     }
 
     [HttpGet]
@@ -55,8 +59,8 @@ public class ProductController : ControllerBase
     {
         try
         {
-            var product = await _productMngContext.Product.FindAsync(id);
-            return Ok(product);
+            var product = await _productService.GetProductById(id);
+            return NoContent();
         }
         catch (Exception e)
         {
@@ -70,9 +74,8 @@ public class ProductController : ControllerBase
     {
         try
         {
-            _productMngContext.Product.Update(model);
-            await _productMngContext.SaveChangesAsync();
-            return Ok(model);
+            await _productService.UpdateProduct(model);
+            return NoContent();
         }
         catch (Exception e)
         {
@@ -86,15 +89,15 @@ public class ProductController : ControllerBase
     {
         try
         {
-            var findProductForDelete = await _productMngContext.Product.FindAsync(id);
+            var findProductForDelete = await _productService.GetProductById(id);
             if (findProductForDelete == null)
             {
                 return NotFound();
             }
 
-            _productMngContext.Product.Remove(findProductForDelete);
+            await _productService.DeleteProduct(id);
             _productMngContext.SaveChanges();
-            return Ok();
+            return NoContent();
         }
         catch (Exception e)
         {

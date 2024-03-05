@@ -6,6 +6,10 @@
     {
         Result = data;
     }
+
+    public ApiResponse()
+    {
+    }
 }
 
 public class ApiResponse : BaseResponse
@@ -15,6 +19,6 @@ public class ApiResponse : BaseResponse
 
 public abstract class BaseResponse
 {
-    public bool Success { get; set; }
+    public bool IsSuccess { get; set; }
     public List<string>? ErrorMessages { get; set; }
 }

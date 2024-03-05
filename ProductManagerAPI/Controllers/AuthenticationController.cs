@@ -16,7 +16,7 @@ namespace ProductManagerAPI.Controllers;
 [ApiController]
 public class AuthenticationController : ControllerBase
 {
-    public IConfiguration _configuration;
+    protected readonly IConfiguration _configuration;
     private readonly ProductManagerContext _productMngContext;
     public AuthenticationController(IConfiguration config, ProductManagerContext productMngContext)
     {
