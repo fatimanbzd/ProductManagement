@@ -1,9 +1,10 @@
 import {Injectable} from '@angular/core';
 import {IUserResponseModel} from "../interfaces/user-model";
-import {BehaviorSubject, Observable, tap} from "rxjs";
+import {BehaviorSubject, map, Observable, tap} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import {Config} from "../../environments/environment";
 import {Router} from "@angular/router";
+import {RoleService} from "./role.service";
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,8 @@ export class AuthService {
   isAuthenticated$ = this.isAuthenticatedSubject.asObservable();
 
   constructor(private http: HttpClient,
-              private router: Router) {
+              private router: Router,
+              private roleService: RoleService) {
   }
 
   logIn(form: any) {
@@ -30,6 +32,7 @@ export class AuthService {
   private doLoginUser(user: IUserResponseModel, token: string) {
     this.loggedUser = user.userName;
     this.storeJWTToken(token)
+    this.roleService.setRole(user.role)
     this.setAuthenticate(user);
   }
 
@@ -43,7 +46,7 @@ export class AuthService {
     this.router.navigate(['/login']);
   }
 
-  getCurrentAuthUser():Observable<IUserResponseModel> {
+  getCurrentAuthUser(): Observable<IUserResponseModel> {
     return this.http.get<IUserResponseModel>('/token/currentUser');
   }
 
@@ -54,5 +57,4 @@ export class AuthService {
   isLoggedIn() {
     return !!localStorage.getItem(this.JWT_TOKEN);
   }
-
 }

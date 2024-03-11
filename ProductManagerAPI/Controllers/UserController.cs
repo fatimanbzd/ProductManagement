@@ -3,6 +3,7 @@
 using Microsoft.AspNetCore.Mvc;
 using ProductManagerAPI.Data;
 using ProductManagerAPI.Data.Entities;
+using ProductManagerAPI.Repositories.IServices;
 
 namespace ProductManagerAPI.Controllers;
 
@@ -10,8 +11,8 @@ namespace ProductManagerAPI.Controllers;
 [ApiController]
 public class UserController : ControllerBase
 {
-    private readonly ProductManagerContext _productMngContext;
-    public UserController(ProductManagerContext productMngContext) => _productMngContext = productMngContext;
+    private readonly IUserService _userService;
+    public UserController(IUserService userService) => _userService = userService;
 
 
     [Route("register")]
@@ -20,10 +21,8 @@ public class UserController : ControllerBase
     {
         try
         {
-            model.CreateDate = DateTime.Now;
-            _productMngContext.User.Add(model);
-            await _productMngContext.SaveChangesAsync();
-            return Ok(model);
+            var result= await _userService.Register(model);
+            return Ok(result);
         }
         catch (Exception ex)
         {

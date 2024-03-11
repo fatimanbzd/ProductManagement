@@ -1,7 +1,7 @@
 
 
-public class RoleId
+public class Role
 {
     public int Id { get; set; }
-    public required string Role { get; set; }
+    public required string Name { get; set; }
 }

@@ -10,6 +10,8 @@ public interface IProductManagerContext
     DbSet<CompanyOrder> CompanyOrder { get; set; }
     DbSet<CustomerOrder> CustomerOrder { get; set; }
     DbSet<User> User { get; set; }
+    DbSet<UserRole> UserRole { get; set; }
+    DbSet<Role> Role { get; set; }
 }
 
 public class ProductManagerContext : DbContext, IProductManagerContext
@@ -21,4 +23,12 @@ public class ProductManagerContext : DbContext, IProductManagerContext
     public virtual DbSet<CompanyOrder> CompanyOrder { get; set; }
     public virtual DbSet<CustomerOrder> CustomerOrder { get; set; }
     public virtual DbSet<User> User { get; set; }
+    public virtual DbSet<Role> Role { get; set; }
+    public virtual DbSet<UserRole> UserRole { get; set; }
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<UserRole>()
+              .HasKey(m => new { m.UserId, m.RoleId });
+
+    }
 }

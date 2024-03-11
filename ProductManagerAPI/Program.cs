@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.OpenApi.Models;
+using ProductManagerAPI.Repositories.IServices;
+using ProductManagerAPI.Repositories.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -48,6 +50,7 @@ builder.Services.AddCors(options =>
     .AllowAnyMethod());
 });
 
+builder.Services.AddScoped<IUserService, UserService>();
 
 builder.Services.AddDbContext<ProductManagerContext>(options =>
 {
